@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Results</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+      }
+      table {
+        width: 90%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background: white;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+      }
+      th {
+        background-color: #007bff;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      tr:hover {
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Student Results</h2>
+    <table>
+      <tr>
+        <th>Roll No</th>
+        <th>Name</th>
+        <th>Marks</th>
+        <th>Grade</th>
+      </tr>
+
+      <!-- Generating 100 dummy students -->
+      <script>
+        let table = document.querySelector("table");
+        for (let i = 1; i <= 100; i++) {
+          let name = "Student " + i;
+          let marks = Math.floor(Math.random() * 101);
+          let grade =
+            marks >= 90
+              ? "A+"
+              : marks >= 80
+              ? "A"
+              : marks >= 70
+              ? "B"
+              : marks >= 60
+              ? "C"
+              : marks >= 50
+              ? "D"
+              : "F";
+          let row = `<tr>
+                            <td>${i}</td>
+                            <td>${name}</td>
+                            <td>${marks}</td>
+                            <td>${grade}</td>
+                           </tr>`;
+          table.innerHTML += row;
+        }
+      </script>
+    </table>
+  </body>
+</html>
